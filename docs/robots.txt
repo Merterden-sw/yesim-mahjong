@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://merterden-sw.github.io/yesim-mahjong/sitemap.xml

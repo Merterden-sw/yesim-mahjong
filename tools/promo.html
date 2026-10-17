@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Promo</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root { --felt: #0f3b35; --felt-light: #17564d; --ivory: #f6f0df; --brass: #e8b84e; --muted: #a8c6bc; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: radial-gradient(ellipse 80% 70% at 60% 45%, var(--felt-light), var(--felt) 60%, #072420);
+    color: var(--ivory); font-family: "Lexend", system-ui, sans-serif; overflow: hidden;
+    display: flex; align-items: center; gap: 4vw; padding: 0 5vw; box-sizing: border-box;
+  }
+  .copy { flex: 0 0 34%; display: grid; gap: 2.2vh; }
+  .copy img { width: clamp(64px, 12vh, 160px); border-radius: 22%; }
+  h1 { margin: 0; font-size: clamp(36px, 8.5vh, 120px); line-height: 1.02; font-weight: 700; letter-spacing: -0.01em; }
+  p { margin: 0; font-size: clamp(18px, 3.4vh, 44px); color: var(--muted); line-height: 1.3; }
+  .frame { flex: 1; height: 86vh; border-radius: 2.4vh; overflow: hidden; box-shadow: 0 2vh 6vh rgba(0,0,0,.45), 0 0 0 1px rgba(246,240,223,.08); }
+  iframe { border: 0; width: 100%; height: 100%; display: block; }
+  body.portrait { flex-direction: column; justify-content: center; padding: 5vh 6vw; gap: 3vh; }
+  body.portrait .copy { flex: none; text-align: center; justify-items: center; }
+  body.portrait .frame { flex: none; width: 100%; height: 66vh; }
+  body.portrait h1 { font-size: clamp(36px, 6vh, 110px); }
+  body.portrait p { font-size: clamp(18px, 2.5vh, 40px); }
+  body.square .copy { flex-basis: 40%; }
+  body.square h1 { font-size: clamp(30px, 7vh, 90px); }
+</style>
+</head>
+<body>
+  <div class="copy">
+    <img src="icons/icon-512.png" alt="">
+    <h1>Yeşim Mahjong</h1>
+    <p id="tag">Büyük taşlar, rahat oyun, her gün yeni görevler.</p>
+  </div>
+  <div class="frame"><iframe src="./" title="Oyun"></iframe></div>
+<script>
+  const q = new URLSearchParams(location.search);
+  if (q.get('layout')) document.body.classList.add(q.get('layout'));
+  if (q.get('lang') === 'en') { document.documentElement.lang = 'en'; document.getElementById('tag').textContent = 'Big, clear tiles. Relaxed play. New tasks every day.'; }
+</script>
+</body>
+</html>
